@@ -15,4 +15,15 @@ class Scoreboard(Turtle):
         self.goto(x_pos, 350)
         self.write(f"{self.score}", align=ALIGNMENT, font=FONT) #temporary
 
-
+    # could maybe put halfway line code here, unsure if it should be in scoreboard however
+    def halfway_line(self):
+        self.hideturtle()
+        self.penup()
+        self.goto(0, -390)
+        self.left(90)
+        self.pencolor("white")
+        for _ in range(20):
+            self.pendown()
+            self.forward(20)
+            self.penup()
+            self.forward(20)

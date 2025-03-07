@@ -20,7 +20,7 @@ class Paddle():
         self.tubby.shapesize(5,1, None)
         self.new_y = 0
 
-    # Movement
+    # Movement (can't go off the screen)
     def up(self):
         if self.tubby.ycor() < 330:
             self.new_y += MOVE_DISTANCE
