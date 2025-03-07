@@ -26,12 +26,12 @@ class Paddle():
 
     def up(self):
         self.new_y += MOVE_DISTANCE
-        self.tubby.goto(X_POS, self.new_y)
+        self.tubby.goto(self.x_pos, self.new_y)
 
 
     def down(self):
         self.new_y -= MOVE_DISTANCE
-        self.tubby.goto(X_POS, self.new_y)
+        self.tubby.goto(self.x_pos, self.new_y)
 
 
 

@@ -9,8 +9,12 @@ screen = Screen()
 
 # Detect input
 screen.listen()
+# move left paddle
 screen.onkeypress(l_paddle.up, "w")
 screen.onkeypress(l_paddle.down, "s")
+# move right paddle
+screen.onkeypress(r_paddle.up, "Up")
+screen.onkeypress(r_paddle.down, "Down")
 
 
 screen.setup(800, 800)
