@@ -22,10 +22,12 @@ class Paddle():
 
     # Movement
     def up(self):
-        self.new_y += MOVE_DISTANCE
-        self.tubby.goto(self.x_pos, self.new_y)
+        if self.tubby.ycor() < 330:
+            self.new_y += MOVE_DISTANCE
+            self.tubby.goto(self.x_pos, self.new_y)
 
     def down(self):
-        self.new_y -= MOVE_DISTANCE
-        self.tubby.goto(self.x_pos, self.new_y)
+        if self.tubby.ycor() > -320:
+            self.new_y -= MOVE_DISTANCE
+            self.tubby.goto(self.x_pos, self.new_y)
 
