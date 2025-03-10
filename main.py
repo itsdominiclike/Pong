@@ -50,6 +50,10 @@ while playing:
         ball.home()
         ball.direction()
 
-
+#     lets do the paddle detection here - works but is 30 away from centre of paddle, also lags when ball is there too
+    if ball.distance(l_paddle) < 30:
+        ball.bounce()
+    if ball.distance(r_paddle) < 30:
+        ball.bounce()
 
 screen.exitonclick()

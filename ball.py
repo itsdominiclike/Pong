@@ -1,7 +1,7 @@
 from turtle import Turtle
 import random
 
-BALL_SPEED = 2
+BALL_SPEED = 4
 
 class Ball(Turtle):
     def __init__(self):
@@ -23,6 +23,20 @@ class Ball(Turtle):
         if self.ycor() >= 290 or self.ycor() <= -280:
             self.randangle = 360 - self.randangle
             self.setheading(self.randangle)
+
+
+    def bounce(self):
+        # bounce logic off ceiling and floor
+        if self.ycor() >= 290 or self.ycor() <= -280:
+            self.randangle = 360 - self.randangle
+            self.setheading(self.randangle)
+        # self.randangle = 360 - self.randangle
+        # bounce logic for paddles
+        self.randangle = 180 - self.randangle
+        self.setheading(self.randangle)
+
+
+
 
 
 
