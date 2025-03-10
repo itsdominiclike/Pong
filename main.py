@@ -40,6 +40,7 @@ p1_score.halfway_line() #temp, not clean
 playing = True
 
 
+
 ball.direction()
 
 while playing:
@@ -50,10 +51,16 @@ while playing:
         ball.home()
         ball.direction()
 
-#     lets do the paddle detection here - works but is 30 away from centre of paddle, also lags when ball is there too
-    if ball.distance(l_paddle) < 30:
-        ball.bounce()
-    if ball.distance(r_paddle) < 30:
-        ball.bounce()
+
+    # paddle bounce logic
+    if abs(ball.xcor() - 350) < 4:
+        if r_paddle.ycor() - 50 <= ball.ycor() <= r_paddle.ycor() + 50:
+            ball.bounce()
+            print("Contact")
+    if abs(ball.xcor() - (-350)) < 4:
+        if l_paddle.ycor() - 50 <= ball.ycor() <= l_paddle.ycor() + 50:
+            ball.bounce()
+            print("Contact")
+
 
 screen.exitonclick()
