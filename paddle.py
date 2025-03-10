@@ -5,8 +5,6 @@ DOWN = 270
 MOVE_DISTANCE = 20
 X_POS = -350
 
-
-
 class Paddle(Turtle):
     def __init__(self, color, x_pos):
         super().__init__()

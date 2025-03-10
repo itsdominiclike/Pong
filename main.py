@@ -1,16 +1,33 @@
-from random import randint
+import turtle
 from turtle import Screen
 from paddle import Paddle
 from scoreboard import Scoreboard
 from ball import Ball
-import time
-import random
 
+playing = True
+
+# halfway line will be here for now
+def halfway_line():
+    line = turtle.Turtle()
+    line.hideturtle()
+    line.penup()
+    line.goto(0, -290)
+    line.left(90)
+    line.pencolor("white")
+    for _ in range(15):
+        line.pendown()
+        line.forward(20)
+        line.penup()
+        line.forward(20)
+
+# turtles/objects
 screen = Screen()
 l_paddle = Paddle("turquoise", -350)
 r_paddle = Paddle("red", 350)
 ball = Ball()
-
+scoreboard = Scoreboard()
+halfway_line()
+ball.rand_direction()
 
 
 # Detect input - Currently cannot press both at once
@@ -30,27 +47,18 @@ screen.title("My Pong Game")
 
 
 
-
-
-p1_score = Scoreboard(-100)
-p2_score = Scoreboard(100)
-
-p1_score.halfway_line() #temp, not clean
-
-playing = True
-
-
-
-ball.direction()
-
 while playing:
 
     ball.move() # temp - slows down when a key is pressed (not ideal)
     # ball 'goal' detection
-    if ball.xcor() >= 380 or ball.xcor() <= -390:
+    if ball.xcor() >= 380:
+        scoreboard.update_p1_score()
         ball.home()
-        ball.direction()
-
+        ball.rand_direction()
+    if ball.xcor() <= -390:
+        scoreboard.update_p2_score()
+        ball.home()
+        ball.rand_direction()
 
     # paddle bounce logic
     if abs(ball.xcor() - 350) < 4:

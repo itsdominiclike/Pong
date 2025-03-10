@@ -1,10 +1,9 @@
 from turtle import Turtle
-
 ALIGNMENT = 'center'
 FONT = ('Courier', 40, 'normal')
 
 class Scoreboard(Turtle):
-    def __init__(self, x_pos):
+    def __init__(self):
         super().__init__()
         self.hideturtle()  # Hide the turtle cursor (only text should be visible)
         self.pencolor("white")
@@ -12,18 +11,16 @@ class Scoreboard(Turtle):
         self.p1_score = 0 #temp
         self.p2_score = 0 #temp
         self.score = 0 #temp
-        self.goto(x_pos, 250)
-        self.write(f"{self.score}", align=ALIGNMENT, font=FONT) #temporary
+        self.goto(0, 250)
+        self.write(f"{self.p1_score} {self.p2_score}", align=ALIGNMENT, font=FONT) #temporary
 
-    # could maybe put halfway line code here, unsure if it should be in scoreboard however
-    def halfway_line(self):
-        self.hideturtle()
-        self.penup()
-        self.goto(0, -290)
-        self.left(90)
-        self.pencolor("white")
-        for _ in range(15):
-            self.pendown()
-            self.forward(20)
-            self.penup()
-            self.forward(20)
+    def update_p1_score(self):
+        self.clear()
+        self.p1_score +=1
+        self.write(f"{self.p1_score} {self.p2_score}", align=ALIGNMENT, font=FONT)
+
+    def update_p2_score(self):
+        self.clear()
+        self.p2_score +=1
+        self.write(f"{self.p1_score} {self.p2_score}", align=ALIGNMENT, font=FONT)
+

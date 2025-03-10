@@ -11,8 +11,8 @@ class Ball(Turtle):
         self.penup()
         self.speed(0)
 
-    # lets make it random for now
-    def direction(self):
+
+    def rand_direction(self):
         self.randangle = random.randint(0, 270)
         self.setheading(self.randangle)
         return self.randangle
@@ -26,11 +26,6 @@ class Ball(Turtle):
 
 
     def bounce(self):
-        # bounce logic off ceiling and floor
-        if self.ycor() >= 290 or self.ycor() <= -280:
-            self.randangle = 360 - self.randangle
-            self.setheading(self.randangle)
-        # self.randangle = 360 - self.randangle
         # bounce logic for paddles
         self.randangle = 180 - self.randangle
         self.setheading(self.randangle)
