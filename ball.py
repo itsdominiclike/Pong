@@ -16,7 +16,7 @@ class Ball(Turtle):
 
     def rand_direction(self):
         """Sets a random starting direction for the ball."""
-        self.randangle = random.randint(0, 270)  # Random angle from 0 to 270 degrees
+        self.randangle = random.randint(0, 360)  # Random angle from 0 to 360 degrees
         self.setheading(self.randangle)
         return self.randangle  # Returns the chosen angle for reference
 
