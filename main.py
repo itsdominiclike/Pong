@@ -1,8 +1,10 @@
+from random import randint
 from turtle import Screen
 from paddle import Paddle
 from scoreboard import Scoreboard
 from ball import Ball
 import time
+import random
 
 screen = Screen()
 l_paddle = Paddle("turquoise", -350)
@@ -37,15 +39,17 @@ p1_score.halfway_line() #temp, not clean
 
 playing = True
 
+
+ball.direction()
+
 while playing:
 
     ball.move() # temp - slows down when a key is pressed (not ideal)
     # ball 'goal' detection
     if ball.xcor() >= 380 or ball.xcor() <= -390:
         ball.home()
-    #basic ceiling detection
-    if ball.ycor() >= 290 or ball.ycor() <= -290:
-        ball.home()
+        ball.direction()
+
 
 
 screen.exitonclick()
